@@ -1,25 +1,26 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../../redux/products/actions";
+import { RootState } from "../../redux/types";
+import { ProductAttributes, ProductData } from "../../types/ProductTypes";
 import './style.scss';
 
 const ProductsTable: React.FC = () => {
   const dispatch = useDispatch();
-  const { products } = useSelector((state) => state.productReducer);
-  const [sortedData, setSortedData] = useState([]);
+  const { products } = useSelector((state: RootState) => state.productReducer);
+  const [sortedData, setSortedData] = useState<ProductData[]>([]);
 
   useEffect(() => {
     dispatch(fetchProducts());
-    console.log(products)
   }, [dispatch]);
 
   useEffect(() => {
-    setSortedData(products.data || []);
+    setSortedData(products.data);
+    console.log(sortedData)
   }, [products]);
 
-
-  const handleSort = (column:string) => {
-    const sorted = [...sortedData].sort((a, b) =>
+  const handleSort = (column: keyof ProductAttributes) => {
+    const sorted = [...sortedData].sort((a, b) => 
         a.attributes[column] > b.attributes[column] ? 1 : -1
     );
     
