@@ -1,8 +1,10 @@
-const DashboardHomePage = () => {
+import DashboardLayout from "../../layouts/DashboardLayout";
+
+const DashboardHomePage: React.FC = () => {
     return (
-        <div>
+        <DashboardLayout>
             <h1>Dashboard Homepage</h1>
-        </div>
+        </DashboardLayout>
     );
 }
 
