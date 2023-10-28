@@ -12,7 +12,7 @@ export interface ProductAttributes {
     title: string
     description: string
     price: number
-    quantity: string
+    quantity: number
     createdAt: string
     updatedAt: string
     publishedAt: string
