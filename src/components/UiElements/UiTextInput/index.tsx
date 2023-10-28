@@ -2,17 +2,17 @@ import React from 'react';
 import './style.scss';
 
 interface TextInputProps {
-  name: string;
+  name?: string;
   label: string;
   type: string;
   value: string;
-  onChange: (name: string, value: string) => void;
+  onChange: (value: string, name: string) => void;
 }
 
 const UiTextInput: React.FC<TextInputProps> = ({ name, label, type, value, onChange }) => {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value;
-    onChange(name, newValue);
+    onChange(newValue, name = '');
   };
 
   return (

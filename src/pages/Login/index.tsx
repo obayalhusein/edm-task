@@ -21,7 +21,7 @@ const LoginPage: React.FC = () => {
         error: '',
     });
 
-    const handleInputChange = (name: string, value: string): void => {
+    const handleInputChange = (value: string, name: string): void => {
         setFormData((prevData) => ({ ...prevData, [name]: value }));
     };
 

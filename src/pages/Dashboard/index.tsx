@@ -8,7 +8,7 @@ import UiButton from "../../components/UiElements/UiButton";
 const DashboardHomePage: React.FC = () => {
     const [searchText, setSearchText] = useState<string>('');
 
-    const handleSearch = (name: string, value: string): void => {
+    const handleSearch = (value: string): void => {
         setSearchText(value);
     };
 
@@ -22,7 +22,6 @@ const DashboardHomePage: React.FC = () => {
 
                     <div className="flex align-center">
                         <UiTextInput
-                            name="search"
                             label="Search..."
                             type="search"
                             value={searchText}
