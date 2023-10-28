@@ -16,14 +16,19 @@ const UiTextInput: React.FC<TextInputProps> = ({ name, label, type, value, onCha
   };
 
   return (
-    <div>
-      <label>{label}:</label>
-      <input
-        type={type}
-        name={name}
-        value={value}
-        onChange={handleInputChange}
-      />
+    <div className="ui-text-input">
+      <label className="ui-text-input-label">
+        <input
+            type={type}
+            name={name}
+            value={value}
+            onChange={handleInputChange}
+            className={`ui-text-input-label-field ${value ? 'active' : ''}`}
+        />
+        <div className="ui-text-input-label-text">
+            {label}
+        </div>
+      </label>
     </div>
   );
 };
