@@ -1,9 +1,14 @@
 import DashboardLayout from "../../layouts/DashboardLayout";
+import ProductsTable from "../../components/ProductsTable";
+import UiContainer from "../../components/UiElements/UiContainer";
 
 const DashboardHomePage: React.FC = () => {
     return (
         <DashboardLayout>
-            <h1>Dashboard Homepage</h1>
+            <UiContainer>
+                <h1>Products</h1>
+                <ProductsTable />
+            </UiContainer>
         </DashboardLayout>
     );
 }

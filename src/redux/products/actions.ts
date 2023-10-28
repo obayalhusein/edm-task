@@ -16,10 +16,10 @@ export const fetchProducts = () => async (dispatch: Dispatch) => {
 
   try {
     const products = await apiService.get("/products");
-    console.log({ products });
+
     dispatch({
       type: CONSTANTS.FETCH_PRODUCT_SUCCESS,
-      payload: products?.data.data,
+      payload: products.data,
     });
   } catch (error) {
     dispatch(errorAction(error));
