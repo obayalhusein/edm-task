@@ -1,5 +1,6 @@
 export interface RootState {
   authReducer: AuthState;
+  productReducer: ProductState;
 }
 
 interface AuthState {
@@ -9,3 +10,8 @@ interface AuthState {
   error: string | null;
 }
 
+interface ProductState {
+  loading: boolean;
+  error: string | null;
+  products: unknown[];
+}
