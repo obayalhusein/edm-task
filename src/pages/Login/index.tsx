@@ -2,6 +2,7 @@ import React, { useState, FormEvent } from 'react';
 import { useDispatch } from 'react-redux';
 import { loginAction } from '../../redux/auth/actions';
 import UiContainer from '../../components/ui-elements/UiContainer';
+import UiTextInput from '../../components/ui-elements/UiTextInput';
 
 interface LoginFormState {
     identifier: string;
@@ -18,8 +19,7 @@ const LoginPage: React.FC = () => {
         error: '',
     });
 
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
-        const { name, value } = e.target;
+    const handleInputChange = (name: string, value: string): void => {
         setFormData((prevData) => ({ ...prevData, [name]: value }));
     };
 
@@ -47,24 +47,23 @@ const LoginPage: React.FC = () => {
         <h2>Login</h2>
         {formData.error && <p className="error">{formData.error}</p>}
         <form onSubmit={handleSubmit}>
-            <div>
-            <label>Email or UserName:</label>
-            <input
-                type="text"
+            
+            <UiTextInput
                 name="identifier"
+                label="Email or UserName"
+                type="text"
                 value={formData.identifier}
                 onChange={handleInputChange}
             />
-            </div>
-            <div>
-            <label>Password:</label>
-            <input
-                type="password"
+            
+            <UiTextInput
                 name="password"
+                label="Password"
+                type="password"
                 value={formData.password}
                 onChange={handleInputChange}
             />
-            </div>
+
             <button type="submit">Login</button>
         </form>
         </UiContainer>
