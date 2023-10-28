@@ -1,11 +1,12 @@
 .ui-button {
     background-color: #f5f5f5;
-    padding: .5rem;
+    padding: .75rem;
     height: 44px;
     min-width: 78px;
     border-radius: 5px;
     border: none;
     cursor: pointer;
+    text-transform: uppercase;
     transition: .3s;
 
     &:hover {
@@ -33,7 +34,7 @@
 
         &.outline {
             background-color: transparent;
-            border: 2px solid;
+            border-color: solid;
             color: var(--primary-color);
         }
 
