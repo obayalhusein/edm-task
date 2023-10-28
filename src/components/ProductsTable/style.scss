@@ -3,6 +3,7 @@
     padding: .5rem;
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
     table {
+        width: 100%;
         border-spacing: 0;
         tr {
             th {
@@ -67,5 +68,10 @@
                 border-bottom: solid 1px #ccc;
             }
         }
+    }
+    .no-data {
+        text-align: center;
+        padding: 1rem;
+        color: #ccc;
     }
 }

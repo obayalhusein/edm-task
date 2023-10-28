@@ -118,6 +118,12 @@ const ProductsTable: React.FC<ProductsTableProps> = ({searchText}) => {
             ))}
         </tbody>
       </table>
+
+      {!sortedData.length && (
+        <div className="no-data">
+          No data found
+        </div>
+      )}
     </div>
   );
 }
