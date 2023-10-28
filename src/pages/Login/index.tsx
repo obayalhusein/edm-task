@@ -1,8 +1,8 @@
 import React, { useState, FormEvent } from 'react';
 import { useDispatch } from 'react-redux';
 import { loginAction } from '../../redux/auth/actions';
-import UiContainer from '../../components/ui-elements/UiContainer';
-import UiTextInput from '../../components/ui-elements/UiTextInput';
+import UiContainer from '../../components/UiElements/UiContainer';
+import UiTextInput from '../../components/UiElements/UiTextInput';
 
 interface LoginFormState {
     identifier: string;
