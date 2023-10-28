@@ -69,7 +69,7 @@ const LoginPage: React.FC = () => {
                 <UiButton
                     label="Login"
                     type="submit"
-                    fill="outline"
+                    color="primary"
                     onClick={handleSubmit}
                 />
             </form>
