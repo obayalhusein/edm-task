@@ -1,15 +1,20 @@
 import * as AUTH_CONSTANSTS from "./constants";
 import { apiService } from "../../services/api";
-import { Dispatch } from "redux";
+import { AnyAction, Dispatch } from "redux";
 
-export const login = ({email, password}) => async (dispatch:Dispatch) => {
+interface LoginActionPayload {
+  email: string;
+  password: string;
+}
+
+export const loginAction = (payload: LoginActionPayload) => async (dispatch: Dispatch<AnyAction>) => {
 
   dispatch({
     type: AUTH_CONSTANSTS.LOGIN_REQUEST,
   })
 
   try {
-   const res =  await apiService.post('/login', {email, password})
+   const res =  await apiService.post('/login', payload)
     localStorage.setItem('token', res.data.token)
     dispatch({
       type: AUTH_CONSTANSTS.LOGIN_SUCCESS,
@@ -27,6 +32,6 @@ export const login = ({email, password}) => async (dispatch:Dispatch) => {
 
 }
 
-export const Logout = () => async (dispatch: Dispatch) => {
+export const LogoutAction = () => async (dispatch: Dispatch<AnyAction>) => {
   return;
 };
