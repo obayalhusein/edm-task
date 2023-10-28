@@ -81,10 +81,10 @@ const ProductsTable: React.FC = () => {
         <tbody>
             {sortedData?.map((item, index) => (
                 <tr key={index}>
-                    <td>{item.attributes.title}</td>
-                    <td>{item.attributes.price}</td>
-                    <td>{item.attributes.quantity}</td>
-                    <td>{item.attributes.description}</td>
+                    <td><span>{item.attributes.title}</span></td>
+                    <td><span>{item.attributes.price}</span></td>
+                    <td><span>{item.attributes.quantity}</span></td>
+                    <td><span>{item.attributes.description}</span></td>
                     {/* {userRole === 'editor' && (
                         <td>
                             <button>Edit</button>

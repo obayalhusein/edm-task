@@ -48,6 +48,16 @@
                     }
                 }
             }
+            td {
+                span {
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                            line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                }
+            }
             th,
             td {
                 padding: 1rem .5rem;
