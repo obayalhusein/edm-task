@@ -1,9 +1,14 @@
 import { ReactNode } from "react";
 import './style.scss';
 
-const UiContainer: React.FC<{ children: ReactNode }> = ({ children }) => {
+interface UiContainerProps {
+    children: ReactNode;
+    maxWidth?: string;
+}
+
+const UiContainer: React.FC<UiContainerProps> = ({ children, maxWidth }) => {
     return (
-        <div className="ui-container">
+        <div className="ui-container" style={{ maxWidth: maxWidth }}>
             {children}
         </div>
     );
