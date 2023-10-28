@@ -1,6 +1,7 @@
 import React, { useState, FormEvent } from 'react';
 import { useDispatch } from 'react-redux';
 import { loginAction } from '../../redux/auth/actions';
+import UiContainer from '../../components/ui-elements/UiContainer';
 
 interface LoginFormState {
     identifier: string;
@@ -42,7 +43,7 @@ const LoginPage: React.FC = () => {
     };
 
     return (
-        <div className="login-container">
+        <UiContainer>
         <h2>Login</h2>
         {formData.error && <p className="error">{formData.error}</p>}
         <form onSubmit={handleSubmit}>
@@ -66,7 +67,7 @@ const LoginPage: React.FC = () => {
             </div>
             <button type="submit">Login</button>
         </form>
-        </div>
+        </UiContainer>
     );
 };
 

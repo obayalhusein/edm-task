@@ -1,0 +1,24 @@
+@import '../../../styles/variables/breakpoints';
+
+$container-gutter-x: .75rem;
+
+$container-max-widths: (
+    xs: 540px,
+    sm: 720px,
+    md: 960px,
+    lg: 1140px,
+    xl: 1320px,
+);
+
+.ui-container {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    padding-left: $container-gutter-x;
+    padding-right: $container-gutter-x;
+    @each $breakpoint, $max-width in $container-max-widths {
+        @include breakpoint($breakpoint, min) {
+        max-width: $max-width;
+        }
+    }
+}
