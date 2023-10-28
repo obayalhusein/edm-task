@@ -10,11 +10,22 @@ interface CurrentSort {
   direction: 'asc' | 'desc'
 }
 
+type TableHeader = {
+  name: keyof ProductAttributes;
+  title: string;
+};
+
 const ProductsTable: React.FC = () => {
   const dispatch = useDispatch();
   const { products } = useSelector((state: RootState) => state.productReducer);
-  const [ sortedData, setSortedData ] = useState<ProductData[]>([]);
+  const [sortedData, setSortedData] = useState<ProductData[]>([]);
   const [currentSort, setCurrentSort] = useState<CurrentSort>({ direction: 'asc' });
+  const tableHeaders: TableHeader[] = [
+    { title: 'Title', name: 'title' },
+    { title: 'Price (AED)', name: 'price' },
+    { title: 'Quantity (Item)', name: 'quantity' },
+    { title: 'Description', name: 'description' },
+  ];
 
   useEffect(() => {
     dispatch(fetchProducts());
@@ -26,10 +37,7 @@ const ProductsTable: React.FC = () => {
 
   const handleSort = (column: keyof ProductAttributes) => {
     const direction = currentSort.direction === 'asc' ? 1 : -1;
-
-    const isString = sortedData.every(item => typeof item.attributes[column] === 'string');
-
-    console.log(isString)
+    const isString = typeof sortedData[0].attributes[column] === 'string';
 
     const sorted = [...sortedData].sort((a, b) => {
       const valueA = a.attributes[column];
@@ -54,13 +62,9 @@ const ProductsTable: React.FC = () => {
       <table>
         <thead>
             <tr>
-                <th onClick={() => handleSort('title')}>Title</th>
-                <th onClick={() => handleSort('price')}>Price (AED)</th>
-                <th onClick={() => handleSort('quantity')}>Quantity (Item)</th>
-                <th onClick={() => handleSort('description')}>Description</th>
-                {/* {userRole === 'Editor' && (
-                <th>Actions</th>
-                )} */}
+                {tableHeaders.map((item, index) => (
+                  <th onClick={() => handleSort(item.name)} key={index}>{item.title}</th>
+                ))}
             </tr>
         </thead>
         <tbody>
