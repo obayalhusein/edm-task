@@ -3,16 +3,16 @@ import { useDispatch } from 'react-redux';
 import { loginAction } from '../../redux/auth/actions';
 
 interface LoginFormState {
-  email: string;
-  password: string;
-  error: string;
+    identifier: string;
+    password: string;
+    error: string;
 }
 
 const LoginPage: React.FC = () => {
     const dispatch = useDispatch();
 
     const [formData, setFormData] = useState<LoginFormState>({
-        email: '',
+        identifier: '',
         password: '',
         error: '',
     });
@@ -26,19 +26,19 @@ const LoginPage: React.FC = () => {
         e.preventDefault();
 
         // Simple validation
-        if (!formData.email || !formData.password) {
+        if (!formData.identifier || !formData.password) {
         setFormData({ ...formData, error: 'Please fill in all fields' });
         return;
         }
 
         // Dispatch login action
         dispatch(loginAction({
-            email: formData.email,
+            identifier: formData.identifier,
             password: formData.password
         }));
 
         // Reset form
-        setFormData({ email: '', password: '', error: '' });
+        setFormData({ identifier: '', password: '', error: '' });
     };
 
     return (
@@ -47,11 +47,11 @@ const LoginPage: React.FC = () => {
         {formData.error && <p className="error">{formData.error}</p>}
         <form onSubmit={handleSubmit}>
             <div>
-            <label>Email:</label>
+            <label>Email or UserName:</label>
             <input
-                type="email"
-                name="email"
-                value={formData.email}
+                type="text"
+                name="identifier"
+                value={formData.identifier}
                 onChange={handleInputChange}
             />
             </div>

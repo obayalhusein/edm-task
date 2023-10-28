@@ -3,7 +3,7 @@ import { apiService } from "../../services/api";
 import { AnyAction, Dispatch } from "redux";
 
 interface LoginActionPayload {
-  email: string;
+  identifier: string;
   password: string;
 }
 
@@ -14,7 +14,7 @@ export const loginAction = (payload: LoginActionPayload) => async (dispatch: Dis
   })
 
   try {
-   const res =  await apiService.post('/login', payload)
+   const res =  await apiService.post('/auth/local', payload)
     localStorage.setItem('token', res.data.token)
     dispatch({
       type: AUTH_CONSTANSTS.LOGIN_SUCCESS,
