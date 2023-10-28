@@ -17,6 +17,8 @@
         &-field {
             width: 100%;
             padding: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
             &:focus,
             &.active {
                 & + .ui-text-input-label-text {

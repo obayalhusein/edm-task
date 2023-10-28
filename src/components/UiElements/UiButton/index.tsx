@@ -6,13 +6,14 @@ interface UiButtonProps {
     type?: 'button' | 'submit' | 'reset';
     color?: 'primary';
     fill?: 'text' | 'outline';
+    fullWidth?: boolean;
     children?: ReactNode;
     onClick: (e: FormEvent) => void;
 }
 
-const UiButton: React.FC<UiButtonProps> = ({ label, type, color, fill, children, onClick }) => {
+const UiButton: React.FC<UiButtonProps> = ({ label, type, color, fill, fullWidth, children, onClick }) => {
     return (
-        <button type={type} className={`ui-button ${color} ${fill}`} onClick={onClick}>
+        <button type={type} className={`ui-button ${color || ''} ${fill || ''} ${fullWidth ? 'full-width' : ''}`} onClick={onClick}>
           {label ? label : children }
         </button>
     );

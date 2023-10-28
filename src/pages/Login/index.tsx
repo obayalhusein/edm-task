@@ -70,6 +70,7 @@ const LoginPage: React.FC = () => {
                     label="Login"
                     type="submit"
                     color="primary"
+                    fullWidth
                     onClick={handleSubmit}
                 />
             </form>
