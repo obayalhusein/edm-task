@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { loginAction } from '../../redux/auth/actions';
 import UiContainer from '../../components/UiElements/UiContainer';
 import UiTextInput from '../../components/UiElements/UiTextInput';
+import UiButton from '../../components/UiElements/UiButton';
 
 interface LoginFormState {
     identifier: string;
@@ -44,28 +45,34 @@ const LoginPage: React.FC = () => {
 
     return (
         <UiContainer>
-        <h2>Login</h2>
-        {formData.error && <p className="error">{formData.error}</p>}
-        <form onSubmit={handleSubmit}>
-            
-            <UiTextInput
-                name="identifier"
-                label="Email or UserName"
-                type="text"
-                value={formData.identifier}
-                onChange={handleInputChange}
-            />
-            
-            <UiTextInput
-                name="password"
-                label="Password"
-                type="password"
-                value={formData.password}
-                onChange={handleInputChange}
-            />
+            <h1>Login</h1>
 
-            <button type="submit">Login</button>
-        </form>
+            {formData.error && <p className="error">{formData.error}</p>}
+            
+            <form onSubmit={handleSubmit}>
+                <UiTextInput
+                    name="identifier"
+                    label="Email or UserName"
+                    type="text"
+                    value={formData.identifier}
+                    onChange={handleInputChange}
+                />
+                
+                <UiTextInput
+                    name="password"
+                    label="Password"
+                    type="password"
+                    value={formData.password}
+                    onChange={handleInputChange}
+                />
+
+                <UiButton
+                    label="Login"
+                    type="submit"
+                    fill="outline"
+                    onClick={handleSubmit}
+                />
+            </form>
         </UiContainer>
     );
 };
