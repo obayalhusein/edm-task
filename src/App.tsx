@@ -39,18 +39,16 @@ const App = () => {
   if (loading) return <PageLoader />;
 
   return (
-    <div className="App">
-      <Suspense fallback="Loading...">
-        <Routes>
-          <Route path="/login" element={<LoginPage />} />
-          <Route
-            path="/dashboard"
-            element={<ProtecedRoute element={<DashboardHomePage />} />}
-          />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </Suspense>
-    </div>
+    <Suspense fallback="Loading...">
+      <Routes>
+        <Route path="/login" element={<LoginPage />} />
+        <Route
+          path="/dashboard"
+          element={<ProtecedRoute element={<DashboardHomePage />} />}
+        />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Suspense>
   );
 }
 

@@ -44,37 +44,39 @@ const LoginPage: React.FC = () => {
     };
 
     return (
-        <UiContainer>
-            <h1>Login</h1>
+        <div className="bg-primary flex flex-column justify-center h-100">
+            <UiContainer>
+                <h1>Login</h1>
 
-            {formData.error && <p className="error">{formData.error}</p>}
-            
-            <form onSubmit={handleSubmit}>
-                <UiTextInput
-                    name="identifier"
-                    label="Email or UserName"
-                    type="text"
-                    value={formData.identifier}
-                    onChange={handleInputChange}
-                />
+                {formData.error && <p className="error">{formData.error}</p>}
                 
-                <UiTextInput
-                    name="password"
-                    label="Password"
-                    type="password"
-                    value={formData.password}
-                    onChange={handleInputChange}
-                />
+                <form onSubmit={handleSubmit}>
+                    <UiTextInput
+                        name="identifier"
+                        label="Email or UserName"
+                        type="text"
+                        value={formData.identifier}
+                        onChange={handleInputChange}
+                    />
+                    
+                    <UiTextInput
+                        name="password"
+                        label="Password"
+                        type="password"
+                        value={formData.password}
+                        onChange={handleInputChange}
+                    />
 
-                <UiButton
-                    label="Login"
-                    type="submit"
-                    color="primary"
-                    fullWidth
-                    onClick={handleSubmit}
-                />
-            </form>
-        </UiContainer>
+                    <UiButton
+                        label="Login"
+                        type="submit"
+                        color="primary"
+                        fullWidth
+                        onClick={handleSubmit}
+                    />
+                </form>
+            </UiContainer>
+        </div>
     );
 };
 
