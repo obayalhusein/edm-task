@@ -11,7 +11,7 @@ interface CurrentSort {
 }
 
 type TableHeader = {
-  name: keyof ProductAttributes;
+  column: keyof ProductAttributes;
   title: string;
 };
 
@@ -21,10 +21,10 @@ const ProductsTable: React.FC = () => {
   const [sortedData, setSortedData] = useState<ProductData[]>([]);
   const [currentSort, setCurrentSort] = useState<CurrentSort>({ direction: 'asc' });
   const tableHeaders: TableHeader[] = [
-    { title: 'Title', name: 'title' },
-    { title: 'Price (AED)', name: 'price' },
-    { title: 'Quantity (Item)', name: 'quantity' },
-    { title: 'Description', name: 'description' },
+    { title: 'Title', column: 'title' },
+    { title: 'Price (AED)', column: 'price' },
+    { title: 'Quantity (Item)', column: 'quantity' },
+    { title: 'Description', column: 'description' },
   ];
 
   useEffect(() => {
@@ -63,7 +63,18 @@ const ProductsTable: React.FC = () => {
         <thead>
             <tr>
                 {tableHeaders.map((item, index) => (
-                  <th onClick={() => handleSort(item.name)} key={index}>{item.title}</th>
+                  <th
+                    onClick={() => handleSort(item.column)}
+                    key={index}
+                    className={`sortable`}
+                  >
+                    {item.title}
+                    <span className={`arrow ${currentSort.column == item.column ? 'active' : ''} ${currentSort.direction}`}>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                        <path d="M169.4 470.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 370.8 224 64c0-17.7-14.3-32-32-32s-32 14.3-32 32l0 306.7L54.6 265.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z"/>
+                      </svg>
+                    </span>
+                  </th>
                 ))}
             </tr>
         </thead>

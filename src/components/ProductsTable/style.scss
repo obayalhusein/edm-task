@@ -8,6 +8,45 @@
             th {
                 text-align: start;
                 color: var(--title-color);
+                &.sortable {
+                    position: relative;
+                    padding-inline-end: 1rem;
+                    cursor: pointer;
+                    user-select: none;
+                    &:hover {
+                        color: var(--primary-color);
+                        .arrow {
+                            &:not(.active) {
+                                opacity: .25;
+                            }
+                            svg {
+                                path {
+                                    fill: var(--primary-color);
+                                }
+                            }
+                        }
+                    }
+                    .arrow {
+                        display: flex;
+                        align-items: center;
+                        position: absolute;
+                        top: 0;
+                        bottom: 0;
+                        right: .5rem;
+                        margin: auto;
+                        width: 10px;
+                        height: 10px;
+                        transition: .3s;
+                        &:not(.active) {
+                            opacity: 0;
+                        }
+                        &.active {
+                            &.asc {
+                                transform: rotate(180deg);
+                            }
+                        }
+                    }
+                }
             }
             th,
             td {
