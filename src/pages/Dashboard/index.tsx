@@ -1,3 +1,4 @@
+import { useState } from "react";
 import DashboardLayout from "../../layouts/DashboardLayout";
 import ProductsTable from "../../components/ProductsTable";
 import UiContainer from "../../components/UiElements/UiContainer";
@@ -5,6 +6,12 @@ import UiTextInput from "../../components/UiElements/UiTextInput";
 import UiButton from "../../components/UiElements/UiButton";
 
 const DashboardHomePage: React.FC = () => {
+    const [searchText, setSearchText] = useState<string>('');
+
+    const handleSearch = (name: string, value: string): void => {
+        setSearchText(value);
+    };
+
     return (
         <DashboardLayout>
             <UiContainer>
@@ -18,8 +25,8 @@ const DashboardHomePage: React.FC = () => {
                             name="search"
                             label="Search..."
                             type="search"
-                            value=""
-                            onChange={() => {}}
+                            value={searchText}
+                            onChange={handleSearch}
                         />
                         &nbsp;
                         <UiButton
@@ -31,7 +38,9 @@ const DashboardHomePage: React.FC = () => {
                         />
                     </div>
                 </div>
-                <ProductsTable />
+                <ProductsTable
+                    searchText={searchText}
+                />
             </UiContainer>
         </DashboardLayout>
     );

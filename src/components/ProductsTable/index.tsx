@@ -15,7 +15,11 @@ type TableHeader = {
   title: string;
 };
 
-const ProductsTable: React.FC = () => {
+interface ProductsTableProps {
+  searchText?: string;
+}
+
+const ProductsTable: React.FC<ProductsTableProps> = ({searchText}) => {
   const dispatch = useDispatch();
   const { products } = useSelector((state: RootState) => state.productReducer);
   const [sortedData, setSortedData] = useState<ProductData[]>([]);
@@ -34,6 +38,25 @@ const ProductsTable: React.FC = () => {
   useEffect(() => {
     setSortedData(products.data);
   }, [products]);
+
+  useEffect(() => {
+    if (searchText) {
+        const filtered = [...products.data].filter(item => {
+            const attributes = item.attributes;
+            const lowercaseSearchText = searchText.toLowerCase();
+
+            for (const key in attributes) {
+                if (Object.prototype.hasOwnProperty.call(attributes, key) && String(attributes[key]).toLowerCase().includes(lowercaseSearchText)) {
+                    return true;
+                }
+            }
+            return false;
+        });
+        setSortedData(filtered);
+    } else {
+        setSortedData(products.data);
+    }
+}, [searchText]);
 
   const handleSort = (column: keyof ProductAttributes) => {
     const direction = currentSort.direction === 'asc' ? 1 : -1;
