@@ -33,7 +33,7 @@ const UiModal: React.FC<UiModalProps> = ({ title, isOpen, onClose, onSubmit, isT
                         {isTypeConfirm ? 'Cancel' : 'Close' }
                     </UiButton>
                     {onSubmit && (
-                        <UiButton onClick={onSubmit} color="primary">
+                        <UiButton onClick={onSubmit} color={isTypeConfirm ? 'error' : 'primary'}>
                             {isTypeConfirm ? 'Confirm' : 'Submit' }
                         </UiButton>
                     )}
