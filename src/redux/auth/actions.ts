@@ -1,5 +1,5 @@
 import * as AUTH_CONSTANSTS from "./constants";
-import { apiService } from "../../services/api";
+import { apiService } from "../../utils/api";
 import { AnyAction, Dispatch } from "redux";
 
 interface LoginActionPayload {

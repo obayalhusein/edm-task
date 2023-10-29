@@ -1,4 +1,4 @@
-import { apiService } from "../../services/api";
+import { apiService } from "../../utils/api";
 import { Dispatch } from "redux";
 import * as CONSTANTS from "./constants";
 
