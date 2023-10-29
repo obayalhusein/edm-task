@@ -25,7 +25,7 @@ export default UiCol;
 
 
 function getClassNames({ cols, xs, sm, md, lg, xl }: UiColProps) {
-    const classList = [];
+    const classList = ['ui-col'];
   
     if (cols) {
       classList.push(`ui-col-${cols}`);

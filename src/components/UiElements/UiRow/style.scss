@@ -1,4 +1,10 @@
 .ui-row {
     display: flex;
     flex-wrap: wrap;
+    &:not(.ui-row-no-gutters) {
+        .ui-col {
+            padding-left: 0.25rem;
+            padding-right: 0.25rem;
+        }
+    }
 }
