@@ -23,7 +23,7 @@ const ProtecedRoute = ({ element }: { element: JSX.Element }) => {
   } else {
     return <Navigate to="/login" />;
   }
-}
+};
 
 const App = () => {
   const { loading, isAuth } = useSelector(
@@ -41,6 +41,7 @@ const App = () => {
   return (
     <Suspense fallback="Loading...">
       <Routes>
+        <Route index element={<Navigate to="/dashboard" />} />
         <Route path="/login" element={<LoginPage />} />
         <Route
           path="/dashboard"
@@ -50,6 +51,6 @@ const App = () => {
       </Routes>
     </Suspense>
   );
-}
+};
 
 export default App;

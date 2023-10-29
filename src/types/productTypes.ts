@@ -1,30 +1,31 @@
 export interface ProductRoot {
-    data: ProductData[]
-    meta: ProductMeta
+  data: ProductData[]
+  meta: ProductMeta
 }
 
 export interface ProductData {
-    id: number
-    attributes: ProductAttributes
+  id: number
+  attributes: ProductAttributes
 }
 
 export interface ProductAttributes {
-    title: string
-    description: string
-    price: number
-    quantity: number
-    createdAt: string
-    updatedAt: string
-    publishedAt: string
+  id: number
+  title: string
+  description: string
+  price: number
+  quantity: number
+  createdAt?: string
+  updatedAt?: string
+  publishedAt?: string
 }
 
 export interface ProductMeta {
-    pagination: ProductPagination
+  pagination: ProductPagination
 }
 
 export interface ProductPagination {
-    page: number
-    pageSize: number
-    pageCount: number
-    total: number
+  page: number
+  pageSize: number
+  pageCount: number
+  total: number
 }
