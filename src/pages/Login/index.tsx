@@ -48,31 +48,38 @@ const LoginPage: React.FC = () => {
                     {formData.error && <p className="error">{formData.error}</p>}
                     
                     <form onSubmit={handleSubmit}>
-                        <UiTextInput
-                            name="identifier"
-                            label="Your Email"
-                            type="text"
-                            value={formData.identifier}
-                            onChange={handleInputChange}
-                            validate={isEmailValid}
-                        />
-                        
-                        <UiTextInput
-                            name="password"
-                            label="Your Password"
-                            type="password"
-                            value={formData.password}
-                            onChange={handleInputChange}
-                            validate={isPasswordValid}
-                        />
+                        <div>
+                            <UiTextInput
+                                name="identifier"
+                                label="Your Email"
+                                type="text"
+                                value={formData.identifier}
+                                onChange={handleInputChange}
+                                validate={isEmailValid}
+                            />
+                        </div>
 
-                        <UiButton
-                            label="Login"
-                            type="submit"
-                            color="primary"
-                            fullWidth
-                            onClick={handleSubmit}
-                        />
+                        <div>
+                            <UiTextInput
+                                name="password"
+                                label="Your Password"
+                                type="password"
+                                value={formData.password}
+                                onChange={handleInputChange}
+                                validate={isPasswordValid}
+                            />
+                        </div>
+
+                        <div>
+                            <UiButton
+                                label="Login"
+                                type="submit"
+                                color="primary"
+                                fullWidth
+                                onClick={handleSubmit}
+                            />
+                        </div>
+
                     </form>
                 </UiCard>
             </UiContainer>
