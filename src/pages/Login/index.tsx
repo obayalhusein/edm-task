@@ -5,6 +5,7 @@ import UiContainer from '../../components/UiElements/UiContainer';
 import UiTextInput from '../../components/UiElements/UiTextInput';
 import UiButton from '../../components/UiElements/UiButton';
 import UiCard from '../../components/UiElements/UiCard';
+import { isEmailValid, isPasswordValid } from '../../utils/validators';
 
 interface LoginFormState {
     identifier: string;
@@ -28,12 +29,6 @@ const LoginPage: React.FC = () => {
     const handleSubmit = (e: FormEvent) => {
         e.preventDefault();
 
-        // Simple validation
-        if (!formData.identifier || !formData.password) {
-        setFormData({ ...formData, error: 'Please fill in all fields' });
-        return;
-        }
-
         // Dispatch login action
         dispatch(loginAction({
             identifier: formData.identifier,
@@ -55,18 +50,20 @@ const LoginPage: React.FC = () => {
                     <form onSubmit={handleSubmit}>
                         <UiTextInput
                             name="identifier"
-                            label="Email or UserName"
+                            label="Your Email"
                             type="text"
                             value={formData.identifier}
                             onChange={handleInputChange}
+                            validate={isEmailValid}
                         />
                         
                         <UiTextInput
                             name="password"
-                            label="Password"
+                            label="Your Password"
                             type="password"
                             value={formData.password}
                             onChange={handleInputChange}
+                            validate={isPasswordValid}
                         />
 
                         <UiButton

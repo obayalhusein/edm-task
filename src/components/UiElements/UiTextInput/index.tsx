@@ -6,13 +6,14 @@ interface TextInputProps {
   label: string;
   type: string;
   value: string;
+  validate?: (value: string) => string;
   onChange: (value: string, name: string) => void;
 }
 
-const UiTextInput: React.FC<TextInputProps> = ({ name, label, type, value, onChange }) => {
+const UiTextInput: React.FC<TextInputProps> = ({ name, label, type, value, validate, onChange }) => {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value;
-    onChange(newValue, name = '');
+    onChange(newValue, name || '');
   };
 
   return (
@@ -29,6 +30,11 @@ const UiTextInput: React.FC<TextInputProps> = ({ name, label, type, value, onCha
             {label}
         </div>
       </label>
+      {validate && (
+        <div className='ui-text-input-details'>
+          {value.length > 3 ? validate(value) : ''}
+        </div>
+      )}
     </div>
   );
 };
