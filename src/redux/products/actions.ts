@@ -42,7 +42,7 @@ export const addProduct = (productData: ProductAttributes) => async (dispatch: D
   }
 };
 
-export const editProduct = (editedProduct: ProductAttributes) => async (dispatch: any) => {
+export const editProduct = (editedProduct: ProductAttributes) => async (dispatch: Dispatch) => {
   dispatch(loadingAction());
   try {
     const edited: { data: ProductAttributes; } = await apiService.put(`/products/${editedProduct.id}`, {
