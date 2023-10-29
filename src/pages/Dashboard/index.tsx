@@ -3,7 +3,7 @@ import DashboardLayout from "../../layouts/DashboardLayout";
 import ProductsTable from "../../components/ProductsTable";
 import UiContainer from "../../components/UiElements/UiContainer";
 import UiTextInput from "../../components/UiElements/UiTextInput";
-import UiButton from "../../components/UiElements/UiButton";
+import ProductCreate from "../../components/ProductCreate";
 
 const DashboardHomePage: React.FC = () => {
     const [searchText, setSearchText] = useState<string>('');
@@ -28,13 +28,7 @@ const DashboardHomePage: React.FC = () => {
                             onChange={handleSearch}
                         />
                         &nbsp;
-                        <UiButton
-                            label="Add Product"
-                            type="button"
-                            color="primary"
-                            fill="outline"
-                            onClick={() => {}}
-                        />
+                        <ProductCreate />
                     </div>
                 </div>
                 <ProductsTable
