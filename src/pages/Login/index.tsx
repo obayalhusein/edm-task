@@ -82,6 +82,7 @@ const LoginPage: React.FC = () => {
                 label="Login"
                 type="submit"
                 color="primary"
+                disabled={!!isEmailValid(formData.identifier) || !!isPasswordValid(formData.password)}
                 fullWidth
                 onClick={handleSubmit}
               />

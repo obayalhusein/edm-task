@@ -88,6 +88,11 @@
         width: 100%;
     }
 
+    &[disabled] {
+        background: #d8d8d8;
+        cursor: default;
+    }
+
     + .ui-button,
     + .ui-text-input {
         margin-inline-start: .75rem;
