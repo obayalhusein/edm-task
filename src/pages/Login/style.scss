@@ -1,0 +1,112 @@
+@import '../../styles/variables/breakpoints';
+
+.auth-card {
+    position: relative;
+    z-index: 2;
+}
+
+.auth-effects {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    .effect {
+        position: absolute;
+        min-width: 150px;
+        max-width: 20vw;
+        margin: auto;
+        &.effect-cloud1 {
+            bottom: -10vw;
+            left: 0;
+            max-width: 45vw;
+            filter: blur(2px);
+            animation: floating 5s ease-in-out infinite alternate;
+        }
+        &.effect-cloud2 {
+            top: 0;
+            right: 5vw;
+            max-width: 15vw;
+            animation: floating 3s ease-in-out infinite alternate;
+        }
+        &.effect-gift {
+            top: 2.5vw;
+            left: 10vw;
+            max-width: 15vw;
+            transform-origin: bottom;
+            animation: shaking-rotaion 10s infinite alternate;
+            @include breakpoint(md, max) {
+                min-width: 175px;
+            }
+        }
+        &.effect-laptop {
+            bottom: 0;
+            right: 0;
+            max-width: 25vw;
+            @include breakpoint(md, max) {
+                display: none;
+            }
+        }
+        &.effect-shopping-cart1 {
+            bottom: 0;
+            right: 25vw;
+            max-width: 10vw;
+            filter: blur(2px);
+            animation: floating 5s ease-in-out infinite alternate;
+            @include breakpoint(md, max) {
+                display: none;
+            }
+        }
+        &.effect-shopping-cart2 {
+            top: 15vw;
+            left: 5vw;
+            max-width: 5vw;
+            min-width: 100px;
+            filter: blur(2px);
+            animation: floating 5s ease-in-out infinite alternate;
+            @include breakpoint(md, max) {
+                top: unset;
+                left: unset;
+                bottom: 5vw;
+                right: 5vw;
+            }
+        }
+    }
+}
+
+@keyframes floating {
+    0% {
+        transform: translateX(-5%);
+    }
+    100% {
+        transform: translateX(5%);
+    }
+}
+
+@keyframes shaking-rotaion {
+    0% {
+        transform: rotate(0deg);
+    }
+    15% {
+        transform: rotate(3deg);
+    }
+    20% {
+        transform: rotate(-3deg);
+    }
+    25% {
+        transform: rotate(3deg) scale(1.05);
+    }
+    30% {
+        transform: rotate(-5deg);
+    }
+    35% {
+        transform: rotate(5deg);
+    }
+    40% {
+        transform: rotate(0deg) scale(1.05);
+    }
+    75% {
+        transform: rotate(5deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}

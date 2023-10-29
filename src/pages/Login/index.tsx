@@ -7,6 +7,7 @@ import UiButton from '../../components/UiElements/UiButton';
 import UiCard from '../../components/UiElements/UiCard';
 import { isEmailValid, isPasswordValid } from '../../utils/validators';
 import { useNavigate } from 'react-router-dom';
+import './style.scss';
 
 interface LoginFormState {
   identifier: string;
@@ -49,47 +50,57 @@ const LoginPage: React.FC = () => {
   return (
     <div className="bg-primary flex flex-column justify-center h-100">
       <UiContainer maxWidth="550px">
-        <UiCard>
-          <h1>Welcome Back!</h1>
+        <div className="auth-card">
+          <UiCard>
+            <h1>Welcome Back!</h1>
 
-          {formData.error && <p className="error">{formData.error}</p>}
+            {formData.error && <p className="error">{formData.error}</p>}
 
-          <form onSubmit={handleSubmit}>
-            <div>
-              <UiTextInput
-                name="identifier"
-                label="Your Email"
-                type="text"
-                value={formData.identifier}
-                onChange={handleInputChange}
-                validate={isEmailValid}
-              />
-            </div>
+            <form onSubmit={handleSubmit}>
+              <div>
+                <UiTextInput
+                  name="identifier"
+                  label="Your Email"
+                  type="text"
+                  value={formData.identifier}
+                  onChange={handleInputChange}
+                  validate={isEmailValid}
+                />
+              </div>
 
-            <div>
-              <UiTextInput
-                name="password"
-                label="Your Password"
-                type="password"
-                value={formData.password}
-                onChange={handleInputChange}
-                validate={isPasswordValid}
-              />
-            </div>
+              <div>
+                <UiTextInput
+                  name="password"
+                  label="Your Password"
+                  type="password"
+                  value={formData.password}
+                  onChange={handleInputChange}
+                  validate={isPasswordValid}
+                />
+              </div>
 
-            <div>
-              <UiButton
-                label="Login"
-                type="submit"
-                color="primary"
-                disabled={!!isEmailValid(formData.identifier) || !!isPasswordValid(formData.password)}
-                fullWidth
-                onClick={handleSubmit}
-              />
-            </div>
+              <div>
+                <UiButton
+                  label="Login"
+                  type="submit"
+                  color="primary"
+                  disabled={!!isEmailValid(formData.identifier) || !!isPasswordValid(formData.password)}
+                  fullWidth
+                  onClick={handleSubmit}
+                />
+              </div>
 
-          </form>
-        </UiCard>
+            </form>
+          </UiCard>
+        </div>
+        <div className="auth-effects">
+          <img className="effect effect-cloud1" src="images/cloud1.webp" />
+          <img className="effect effect-cloud2" src="images/cloud2.webp" />
+          <img className="effect effect-gift" src="images/gift.webp" />
+          <img className="effect effect-laptop" src="images/laptop.webp" />
+          <img className="effect effect-shopping-cart1" src="images/shopping-cart1.webp" />
+          <img className="effect effect-shopping-cart2" src="images/shopping-cart2.webp" />
+        </div>
       </UiContainer>
     </div>
   );
