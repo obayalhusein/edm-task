@@ -5,6 +5,7 @@ import UiRow from "../UiElements/UiRow";
 import UiCol from "../UiElements/UiCol";
 import UiTextInput from "../UiElements/UiTextInput";
 import { isNumberValid, isTextValid } from "../../utils/validators";
+import { ProductData } from "../../types/ProductTypes";
 
 interface EditProductFormState {
     title: string;
@@ -13,13 +14,17 @@ interface EditProductFormState {
     description: string;
 }
 
-const ProductEdit: React.FC = () => {
+interface ProductEditProps {
+    item: ProductData
+}
+
+const ProductEdit: React.FC<ProductEditProps> = ({ item }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [formData, setFormData] = useState<EditProductFormState>({
-        title: '',
-        price: 0,
-        quantity: 1,
-        description: '',
+        title: item.attributes.title,
+        price: item.attributes.price,
+        quantity: item.attributes.quantity,
+        description: item.attributes.description,
     });
 
     const handleInputChange = (value: string, name: string): void => {

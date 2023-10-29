@@ -115,7 +115,7 @@ const ProductsTable: React.FC<ProductsTableProps> = ({searchText}) => {
                     <td><span>{item.attributes.description}</span></td>
                     <td>
                         <div className="flex">
-                          <ProductEdit />
+                          <ProductEdit item={item} />
                           <UiButton onClick={() => {}} color="error" fill="text">Delete</UiButton>
                         </div>
                     </td>
