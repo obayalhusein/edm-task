@@ -43,7 +43,7 @@ const LoginPage: React.FC = () => {
         <div className="bg-primary flex flex-column justify-center h-100">
             <UiContainer maxWidth="550px">
                 <UiCard>
-                    <h1>Login</h1>
+                    <h1>Welcome Back!</h1>
 
                     {formData.error && <p className="error">{formData.error}</p>}
                     
