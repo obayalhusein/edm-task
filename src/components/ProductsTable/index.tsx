@@ -5,6 +5,7 @@ import { RootState } from "../../redux/types";
 import { ProductAttributes, ProductData } from "../../types/ProductTypes";
 import './style.scss';
 import UiButton from "../UiElements/UiButton";
+import ProductEdit from "../ProductEdit";
 
 interface CurrentSort {
   column?: string,
@@ -114,7 +115,7 @@ const ProductsTable: React.FC<ProductsTableProps> = ({searchText}) => {
                     <td><span>{item.attributes.description}</span></td>
                     <td>
                         <div className="flex">
-                          <UiButton onClick={() => {}} color="warn" fill="text">Edit</UiButton>
+                          <ProductEdit />
                           <UiButton onClick={() => {}} color="error" fill="text">Delete</UiButton>
                         </div>
                     </td>
