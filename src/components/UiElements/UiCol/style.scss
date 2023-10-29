@@ -1,0 +1,32 @@
+@import '../../../styles/variables/breakpoints';
+
+$max-columns-per-row: 12;
+$unit-column-width: calc(100% / $max-columns-per-row);
+
+@mixin col-styles($size) {
+    flex: 0 0 $unit-column-width * $size;
+    max-width: $unit-column-width * $size;
+}
+
+.ui-col {
+    @include col-styles($max-columns-per-row); /* default column style */
+
+    @each $break-point, $break-point-size in $break-points {
+        @include breakpoint(xs, max) {
+            @for $size from 1 through $max-columns-per-row {
+                &-#{$size} {
+                    @include col-styles($size);
+                }
+            }
+        }
+
+        @include breakpoint($break-point, min) {
+            @for $size from 1 through $max-columns-per-row {
+                &-#{$break-point}-#{$size} {
+                    @include col-styles($size);
+                }
+            }
+        }
+
+    }
+}

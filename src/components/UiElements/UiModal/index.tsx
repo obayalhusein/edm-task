@@ -14,8 +14,8 @@ const UiModal: React.FC<UiModalProps> = ({ title, isOpen, onClose, children }) =
   if (!isOpen) return null;
 
   return (
-    <div className="modal-wrapper">
-        <div className="modal-wrapper-content">
+    <div className="ui-modal-wrapper">
+        <div className="ui-modal-wrapper-content">
             <UiCard>
                 <div className="flex justify-between">
                     <h3>{title}</h3>
@@ -37,7 +37,7 @@ const UiModal: React.FC<UiModalProps> = ({ title, isOpen, onClose, children }) =
                 </div>
             </UiCard>
         </div>
-        <div onClick={onClose} className="modal-wrapper-overlay"></div>
+        <div onClick={onClose} className="ui-modal-wrapper-overlay"></div>
     </div>
   );
 };

@@ -1,4 +1,4 @@
-.modal-wrapper {
+.ui-modal-wrapper {
     position: fixed;
     top: 0;
     left: 0;
@@ -8,13 +8,13 @@
     justify-content: center;
     align-items: center;
     z-index: 50;
-    .modal-wrapper-content {
-        width: 100%;
+    .ui-modal-wrapper-content {
+        width: 95%;
         max-width: 500px;
         animation: zoom-in 0.3s ease-in-out forwards;
         z-index: 5;
     }
-    .modal-wrapper-overlay {
+    .ui-modal-wrapper-overlay {
         position: absolute;
         inset: 0;
         background-color: rgba(0, 0, 0, 0.5);
