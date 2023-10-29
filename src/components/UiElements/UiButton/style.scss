@@ -44,6 +44,46 @@
         }
     }
 
+    &.warn {
+        background-color: var(--warn-color);
+        color: white;
+
+        &:hover {
+            opacity: .9;
+        }
+
+        &.outline {
+            background-color: transparent;
+            border-color: solid;
+            color: var(--warn-color);
+        }
+
+        &.text {
+            background-color: transparent;
+            color: var(--warn-color);
+        }
+    }
+
+    &.error {
+        background-color: var(--error-color);
+        color: white;
+
+        &:hover {
+            opacity: .9;
+        }
+
+        &.outline {
+            background-color: transparent;
+            border-color: solid;
+            color: var(--error-color);
+        }
+
+        &.text {
+            background-color: transparent;
+            color: var(--error-color);
+        }
+    }
+
     &.full-width {
         width: 100%;
     }

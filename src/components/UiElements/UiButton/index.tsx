@@ -4,7 +4,7 @@ import './style.scss';
 interface UiButtonProps {
     label?: string;
     type?: 'button' | 'submit' | 'reset';
-    color?: 'primary';
+    color?: 'primary' | 'warn' | 'error';
     fill?: 'text' | 'outline';
     fullWidth?: boolean;
     children?: ReactNode;

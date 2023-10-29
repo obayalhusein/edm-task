@@ -4,6 +4,7 @@ import { fetchProducts } from "../../redux/products/actions";
 import { RootState } from "../../redux/types";
 import { ProductAttributes, ProductData } from "../../types/ProductTypes";
 import './style.scss';
+import UiButton from "../UiElements/UiButton";
 
 interface CurrentSort {
   column?: string,
@@ -99,6 +100,9 @@ const ProductsTable: React.FC<ProductsTableProps> = ({searchText}) => {
                     </span>
                   </th>
                 ))}
+                <th>
+                  Actions
+                </th>
             </tr>
         </thead>
         <tbody>
@@ -108,12 +112,12 @@ const ProductsTable: React.FC<ProductsTableProps> = ({searchText}) => {
                     <td><span>{item.attributes.price}</span></td>
                     <td><span>{item.attributes.quantity}</span></td>
                     <td><span>{item.attributes.description}</span></td>
-                    {/* {userRole === 'editor' && (
-                        <td>
-                            <button>Edit</button>
-                            <button>Delete</button>
-                        </td>
-                    )} */}
+                    <td>
+                        <div className="flex">
+                          <UiButton onClick={() => {}} color="warn" fill="text">Edit</UiButton>
+                          <UiButton onClick={() => {}} color="error" fill="text">Delete</UiButton>
+                        </div>
+                    </td>
                 </tr>
             ))}
         </tbody>
