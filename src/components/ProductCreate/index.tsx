@@ -4,6 +4,7 @@ import UiModal from "../UiElements/UiModal";
 import UiRow from "../UiElements/UiRow";
 import UiCol from "../UiElements/UiCol";
 import UiTextInput from "../UiElements/UiTextInput";
+import { isNumberValid, isTextValid } from "../../utils/validators";
 
 interface CreateProductFormState {
     title: string;
@@ -55,6 +56,7 @@ const ProductCreate: React.FC = () => {
                             type="text"
                             value={formData.title}
                             onChange={handleInputChange}
+                            validate={isTextValid}
                         />
                     </UiCol>
                     <UiCol cols={12} sm={6}>
@@ -64,6 +66,7 @@ const ProductCreate: React.FC = () => {
                             type="number"
                             value={formData.price}
                             onChange={handleInputChange}
+                            validate={isNumberValid}
                         />
                     </UiCol>
                     <UiCol cols={12} sm={6}>
@@ -73,6 +76,7 @@ const ProductCreate: React.FC = () => {
                             type="number"
                             value={formData.quantity}
                             onChange={handleInputChange}
+                            validate={isNumberValid}
                         />
                     </UiCol>
                     <UiCol cols={12} sm={12}>
@@ -82,6 +86,7 @@ const ProductCreate: React.FC = () => {
                             type="text"
                             value={formData.description}
                             onChange={handleInputChange}
+                            validate={isTextValid}
                         />
                     </UiCol>
                 </UiRow>
