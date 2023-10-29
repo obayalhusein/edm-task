@@ -8,10 +8,11 @@ interface UiModalProps {
     isOpen: boolean;
     onClose: () => void;
     onSubmit?: () => void;
+    isTypeConfirm: boolean;
     children?: ReactNode;
 }
 
-const UiModal: React.FC<UiModalProps> = ({ title, isOpen, onClose, onSubmit, children }) => {
+const UiModal: React.FC<UiModalProps> = ({ title, isOpen, onClose, onSubmit, isTypeConfirm, children }) => {
   if (!isOpen) return null;
 
   return (
@@ -24,17 +25,16 @@ const UiModal: React.FC<UiModalProps> = ({ title, isOpen, onClose, onSubmit, chi
                         X
                     </UiButton>
                 </div>
-                <div>
+                <div className="ui-modal-wrapper-content-description">
                     {children}
                 </div>
-                <div className="flex justify-end">
+                <div className={`flex ${isTypeConfirm ? 'justify-center' : 'justify-end'}`}>
                     <UiButton onClick={onClose}>
-                        Close
+                        {isTypeConfirm ? 'Cancel' : 'Close' }
                     </UiButton>
-                    &nbsp;
                     {onSubmit && (
                         <UiButton onClick={onSubmit} color="primary">
-                            Submit
+                            {isTypeConfirm ? 'Confirm' : 'Submit' }
                         </UiButton>
                     )}
                 </div>

@@ -6,6 +6,7 @@ import { ProductAttributes, ProductData } from "../../types/ProductTypes";
 import './style.scss';
 import UiButton from "../UiElements/UiButton";
 import ProductEdit from "../ProductEdit";
+import ProductDelete from "../ProductDelete";
 
 interface CurrentSort {
   column?: string,
@@ -116,7 +117,7 @@ const ProductsTable: React.FC<ProductsTableProps> = ({searchText}) => {
                     <td>
                         <div className="flex">
                           <ProductEdit item={item} />
-                          <UiButton onClick={() => {}} color="error" fill="text">Delete</UiButton>
+                          <ProductDelete item={item} />
                         </div>
                     </td>
                 </tr>

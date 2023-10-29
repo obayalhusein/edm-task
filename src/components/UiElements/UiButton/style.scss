@@ -87,4 +87,10 @@
     &.full-width {
         width: 100%;
     }
+
+    + .ui-button,
+    + .ui-text-input {
+        margin-inline-start: .75rem;
+    }
+
 }

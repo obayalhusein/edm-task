@@ -27,7 +27,6 @@ const DashboardHomePage: React.FC = () => {
                             value={searchText}
                             onChange={handleSearch}
                         />
-                        &nbsp;
                         <ProductCreate />
                     </div>
                 </div>
