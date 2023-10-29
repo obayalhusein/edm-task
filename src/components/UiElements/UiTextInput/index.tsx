@@ -5,8 +5,8 @@ interface TextInputProps {
   name?: string;
   label: string;
   type: string;
-  value: string;
-  validate?: (value: string) => string;
+  value: string | number;
+  validate?: (value: string | number) => string;
   onChange: (value: string, name: string) => void;
 }
 
@@ -32,7 +32,7 @@ const UiTextInput: React.FC<TextInputProps> = ({ name, label, type, value, valid
       </label>
       {validate && (
         <div className='ui-text-input-details'>
-          {value.length > 3 ? validate(value) : ''}
+          {(typeof value === 'string' && value.length > 3) || (typeof value === 'number') ? validate(value): ''}
         </div>
       )}
     </div>
