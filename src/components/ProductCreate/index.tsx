@@ -38,6 +38,7 @@ const ProductCreate: React.FC = () => {
   };
 
   const submitModal = () => {
+    // @ts-ignore
     dispatch(addProduct(formData));
     setIsModalOpen(false);
     setFormData({
