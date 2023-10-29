@@ -11,7 +11,7 @@
     .modal-wrapper-content {
         width: 100%;
         max-width: 500px;
-        animation: zoom-in 0.3s forwards;
+        animation: zoom-in 0.3s ease-in-out forwards;
         z-index: 5;
     }
     .modal-wrapper-overlay {
@@ -33,10 +33,13 @@
 }
 
 @keyframes zoom-in {
-    from {
-        transform: scale(0.75);
+    0% {
+        transform: scale(0.8);
     }
-    to {
+    75% {
+        transform: scale(1.05);
+    }
+    100% {
         transform: scale(1);
     }
 }
