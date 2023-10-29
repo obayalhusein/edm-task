@@ -7,10 +7,11 @@ interface UiModalProps {
     title: string;
     isOpen: boolean;
     onClose: () => void;
+    onSubmit?: () => void;
     children?: ReactNode;
 }
 
-const UiModal: React.FC<UiModalProps> = ({ title, isOpen, onClose, children }) => {
+const UiModal: React.FC<UiModalProps> = ({ title, isOpen, onClose, onSubmit, children }) => {
   if (!isOpen) return null;
 
   return (
@@ -31,9 +32,11 @@ const UiModal: React.FC<UiModalProps> = ({ title, isOpen, onClose, children }) =
                         Close
                     </UiButton>
                     &nbsp;
-                    <UiButton onClick={onClose} color="primary">
-                        Submit
-                    </UiButton>
+                    {onSubmit && (
+                        <UiButton onClick={onSubmit} color="primary">
+                            Submit
+                        </UiButton>
+                    )}
                 </div>
             </UiCard>
         </div>

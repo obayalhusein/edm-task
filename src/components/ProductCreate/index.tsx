@@ -34,6 +34,10 @@ const ProductCreate: React.FC = () => {
         setIsModalOpen(false);
     };
 
+    const submitModal = () => {
+        setIsModalOpen(false);
+    };
+
     return (
         <>
             <UiButton
@@ -47,6 +51,7 @@ const ProductCreate: React.FC = () => {
                 title="Add Product"
                 isOpen={isModalOpen}
                 onClose={closeModal}
+                onSubmit={submitModal}
             >
                 <UiRow>
                     <UiCol cols={12} sm={12}>
