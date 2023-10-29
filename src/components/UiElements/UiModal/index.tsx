@@ -8,7 +8,7 @@ interface UiModalProps {
     isOpen: boolean;
     onClose: () => void;
     onSubmit?: () => void;
-    isTypeConfirm: boolean;
+    isTypeConfirm?: boolean;
     children?: ReactNode;
 }
 

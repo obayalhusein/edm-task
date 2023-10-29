@@ -4,7 +4,6 @@ import { fetchProducts } from "../../redux/products/actions";
 import { RootState } from "../../redux/types";
 import { ProductAttributes, ProductData } from "../../types/ProductTypes";
 import './style.scss';
-import UiButton from "../UiElements/UiButton";
 import ProductEdit from "../ProductEdit";
 import ProductDelete from "../ProductDelete";
 
