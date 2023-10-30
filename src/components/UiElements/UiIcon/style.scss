@@ -28,4 +28,10 @@
             fill: var(--error-color);
         }
     }
+    &.muted {
+        path {
+            fill: var(--text-color);
+            opacity: .5;
+        }
+    }
 }
