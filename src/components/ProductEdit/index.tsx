@@ -5,7 +5,7 @@ import UiRow from '../UiElements/UiRow';
 import UiCol from '../UiElements/UiCol';
 import UiTextInput from '../UiElements/UiTextInput';
 import { isNumberValid, isTextValid } from '../../utils/validators';
-import { ProductData } from '../../types/ProductTypes';
+import { ProductData } from '../../types/productTypes';
 import { useDispatch } from 'react-redux';
 import { editProduct } from '../../redux/products/actions';
 

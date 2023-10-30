@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import UiButton from '../UiElements/UiButton';
 import UiModal from '../UiElements/UiModal';
-import { ProductData } from '../../types/ProductTypes';
+import { ProductData } from '../../types/productTypes';
 import { deleteProduct } from '../../redux/products/actions';
 import { useDispatch } from 'react-redux';
 

@@ -1,4 +1,4 @@
-import { ProductAttributes } from "../../types/ProductTypes";
+import { ProductAttributes } from "../../types/productTypes";
 import * as CONSTANTS from "./constants";
 
 const initState = {

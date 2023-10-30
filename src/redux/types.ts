@@ -1,3 +1,5 @@
+import { ProductRoot } from "../types/productTypes";
+
 export interface RootState {
   authReducer: AuthState;
   productReducer: ProductState;
@@ -13,5 +15,5 @@ interface AuthState {
 interface ProductState {
   loading: boolean;
   error: string | null;
-  products: unknown[];
+  products: ProductRoot;
 }

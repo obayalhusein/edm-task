@@ -1,7 +1,7 @@
 import { apiService } from "../../utils/api";
 import { Dispatch } from "redux";
 import * as CONSTANTS from "./constants";
-import { ProductAttributes } from "../../types/ProductTypes";
+import { ProductAttributes } from "../../types/productTypes";
 const loadingAction = () => ({
   type: CONSTANTS.PRODUCT_LOADING,
 });

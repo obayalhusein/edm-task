@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProducts } from '../../redux/products/actions';
 import { RootState } from '../../redux/types';
-import { ProductAttributes, ProductData } from '../../types/ProductTypes';
+import { ProductAttributes, ProductData } from '../../types/productTypes';
 import './style.scss';
 import ProductEdit from '../ProductEdit';
 import ProductDelete from '../ProductDelete';
@@ -46,13 +46,13 @@ const ProductsTable: React.FC<ProductsTableProps> = ({ searchText }) => {
   useEffect(() => {
     if (searchText) {
       const filtered = [...products.data].filter((item) => {
-        const attributes = item.attributes;
+        const attributes: ProductAttributes = item.attributes;
         const lowercaseSearchText = searchText.toLowerCase();
 
         for (const key in attributes) {
           if (
             Object.prototype.hasOwnProperty.call(attributes, key) &&
-            String(attributes[key]).toLowerCase().includes(lowercaseSearchText)
+            String(attributes[key as keyof ProductAttributes]).toLowerCase().includes(lowercaseSearchText)
           ) {
             return true;
           }
