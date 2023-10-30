@@ -4,13 +4,16 @@ import * as CONSTANTS from "./constants";
 const initState = {
   loading: false,
   error: null,
-  products: [],
+  products: { data: [] },
 };
 
-type ProductAction = {
-  type: string;
-  payload?: unknown;
-};
+type ProductAction =
+  | { type: typeof CONSTANTS.PRODUCT_LOADING }
+  | { type: typeof CONSTANTS.PRODUCT_ERROR; payload: string }
+  | { type: typeof CONSTANTS.FETCH_PRODUCT_SUCCESS; payload: ProductAttributes[] }
+  | { type: typeof CONSTANTS.EDIT_PRODUCT; payload: { id: number; attributes: ProductAttributes } }
+  | { type: typeof CONSTANTS.DELETE_PRODUCT; payload: { id: number } }
+  | { type: typeof CONSTANTS.ADDED_PRODUCT; payload: ProductAttributes };
 
 function productReducer(state = initState, action: ProductAction) {
   switch (action.type) {
@@ -65,7 +68,7 @@ function productReducer(state = initState, action: ProductAction) {
         ...state,
         products: {
           ...state.products,
-          data: [...state.products?.data, action.payload],
+          data: [...state.products.data, action.payload],
         },
       };
     default:
