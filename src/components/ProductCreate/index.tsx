@@ -75,6 +75,16 @@ const ProductCreate: React.FC = () => {
               validate={isTextValid}
             />
           </UiCol>
+          <UiCol cols={12} sm={12}>
+            <UiTextInput
+              name="description"
+              label="description"
+              type="text"
+              value={formData.description}
+              onChange={handleInputChange}
+              validate={isTextValid}
+            />
+          </UiCol>
           <UiCol cols={12} sm={6}>
             <UiTextInput
               name="price"
@@ -93,16 +103,6 @@ const ProductCreate: React.FC = () => {
               value={formData.quantity}
               onChange={handleInputChange}
               validate={isNumberValid}
-            />
-          </UiCol>
-          <UiCol cols={12} sm={12}>
-            <UiTextInput
-              name="description"
-              label="description"
-              type="text"
-              value={formData.description}
-              onChange={handleInputChange}
-              validate={isTextValid}
             />
           </UiCol>
         </UiRow>
