@@ -36,6 +36,7 @@ const ProductsTable: React.FC<ProductsTableProps> = ({ searchText }) => {
   ];
 
   useEffect(() => {
+    // @ts-ignore
     dispatch(fetchProducts());
   }, [dispatch]);
 

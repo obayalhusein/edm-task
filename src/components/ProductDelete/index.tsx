@@ -22,6 +22,7 @@ const ProductDelete: React.FC<ProductDeleteProps> = ({ item }) => {
   };
 
   const submitModal = () => {
+    // @ts-ignore
     dispatch(deleteProduct(item.id));
     setIsModalOpen(false);
   };

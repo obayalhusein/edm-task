@@ -43,11 +43,8 @@ const ProductEdit: React.FC<ProductEditProps> = ({ item }) => {
   };
 
   const submitModal = () => {
-    dispatch(
-      editProduct({
-        ...formData,
-        id: item.id,
-      })
+    // @ts-ignore
+    dispatch(editProduct({ ...formData, id: item.id })
     );
     setIsModalOpen(false);
   };

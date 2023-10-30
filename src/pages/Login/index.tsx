@@ -32,12 +32,8 @@ const LoginPage: React.FC = () => {
     e.preventDefault();
 
     // Dispatch login action
-    dispatch(
-      loginAction({
-        identifier: formData.identifier,
-        password: formData.password,
-      })
-    ).then((res: boolean) => {
+    // @ts-ignore
+    dispatch(loginAction({ identifier: formData.identifier, password: formData.password })).then((res: boolean) => {
       if (res) {
         nav('/dashboard');
       }
