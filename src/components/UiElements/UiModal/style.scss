@@ -14,7 +14,14 @@
         animation: zoom-in 0.3s ease-in-out forwards;
         z-index: 5;
         &-title {
-            margin-bottom: .5rem;
+            margin-bottom: .75rem;
+            h3 {
+                .ui-icon {
+                    width: 24px;
+                    height: 24px;
+                    margin-inline-end: .75rem;
+                }
+            }
         }
         &-description {
             margin-bottom: 1.5rem;

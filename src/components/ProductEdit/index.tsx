@@ -66,6 +66,7 @@ const ProductEdit: React.FC<ProductEditProps> = ({ item }) => {
       </UiButton>
       <UiModal
         title="Edit Product"
+        titleIcon="edit"
         isOpen={isModalOpen}
         onClose={closeModal}
         onSubmit={submitModal}

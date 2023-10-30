@@ -60,6 +60,7 @@ const ProductCreate: React.FC = () => {
       />
       <UiModal
         title="Add Product"
+        titleIcon="add"
         isOpen={isModalOpen}
         onClose={closeModal}
         onSubmit={submitModal}

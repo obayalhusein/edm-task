@@ -44,6 +44,7 @@ const ProductDelete: React.FC<ProductDeleteProps> = ({ item }) => {
       </UiButton>
       <UiModal
         title="Delete Product"
+        titleIcon="trash"
         isOpen={isModalOpen}
         onClose={closeModal}
         onSubmit={submitModal}

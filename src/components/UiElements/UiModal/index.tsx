@@ -10,10 +10,11 @@ interface UiModalProps {
     onClose: () => void;
     onSubmit?: () => void;
     isTypeConfirm?: boolean;
+    titleIcon?: string;
     children?: ReactNode;
 }
 
-const UiModal: React.FC<UiModalProps> = ({ title, isOpen, onClose, onSubmit, isTypeConfirm, children }) => {
+const UiModal: React.FC<UiModalProps> = ({ title, isOpen, onClose, onSubmit, isTypeConfirm, titleIcon, children }) => {
   if (!isOpen) return null;
 
   return (
@@ -21,7 +22,13 @@ const UiModal: React.FC<UiModalProps> = ({ title, isOpen, onClose, onSubmit, isT
         <div className="ui-modal-wrapper-content">
             <UiCard>
                 <div className="ui-modal-wrapper-content-title flex align-center justify-between">
-                    <h3 className="no-gutter">
+                    <h3 className="flex align-center no-gutter">
+                        {titleIcon && (
+                            <UiIcon
+                                name={titleIcon}
+                                color={isTypeConfirm ? 'error' : 'primary'}
+                            />
+                        )}
                         {title}
                     </h3>
                     <UiButton onClick={onClose} fill="text" iconOnly>
