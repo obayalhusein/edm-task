@@ -2,6 +2,7 @@ import { ReactNode } from 'react';
 import './style.scss';
 import UiCard from '../UiCard';
 import UiButton from '../UiButton';
+import UiIcon from '../UiIcon';
 
 interface UiModalProps {
     title: string;
@@ -21,8 +22,11 @@ const UiModal: React.FC<UiModalProps> = ({ title, isOpen, onClose, onSubmit, isT
             <UiCard>
                 <div className="flex justify-between">
                     <h3>{title}</h3>
-                    <UiButton onClick={onClose} fill="text">
-                        X
+                    <UiButton onClick={onClose} fill="text" iconOnly>
+                        <UiIcon
+                            name="close"
+                            color="primary"
+                        />
                     </UiButton>
                 </div>
                 <div className="ui-modal-wrapper-content-description">

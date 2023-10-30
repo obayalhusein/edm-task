@@ -4,6 +4,7 @@ import UiModal from '../UiElements/UiModal';
 import { ProductData } from '../../types/productTypes';
 import { deleteProduct } from '../../redux/products/actions';
 import { useDispatch } from 'react-redux';
+import UiIcon from '../UiElements/UiIcon';
 
 interface ProductDeleteProps {
   item: ProductData
@@ -30,12 +31,17 @@ const ProductDelete: React.FC<ProductDeleteProps> = ({ item }) => {
   return (
     <>
       <UiButton
-        label="Delete"
         type="button"
         color="error"
         fill="text"
+        iconOnly
         onClick={openModal}
-      />
+      >
+        <UiIcon
+          name="trash"
+          color="error"
+        />
+      </UiButton>
       <UiModal
         title="Delete Product"
         isOpen={isModalOpen}

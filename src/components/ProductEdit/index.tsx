@@ -8,6 +8,7 @@ import { isNumberValid, isTextValid } from '../../utils/validators';
 import { ProductData } from '../../types/productTypes';
 import { useDispatch } from 'react-redux';
 import { editProduct } from '../../redux/products/actions';
+import UiIcon from '../UiElements/UiIcon';
 
 interface EditProductFormState {
   title: string;
@@ -52,12 +53,17 @@ const ProductEdit: React.FC<ProductEditProps> = ({ item }) => {
   return (
     <>
       <UiButton
-        label="Edit"
         type="button"
         color="primary"
         fill="text"
+        iconOnly
         onClick={openModal}
-      />
+      >
+        <UiIcon
+          name="edit"
+          color="primary"
+        />
+      </UiButton>
       <UiModal
         title="Edit Product"
         isOpen={isModalOpen}
