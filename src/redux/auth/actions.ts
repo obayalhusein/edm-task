@@ -14,7 +14,7 @@ export const loginAction = (payload: LoginActionPayload) => async (dispatch: Dis
 
     try {
       const res = await apiService.post('/auth/local', payload);
-      localStorage.setItem('token', res.jwt);
+      localStorage.setItem('token', res.data.jwt);
       dispatch({
         type: AUTH_CONSTANSTS.LOGIN_SUCCESS,
         payload: res.data.token,
