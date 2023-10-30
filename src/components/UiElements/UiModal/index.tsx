@@ -20,8 +20,10 @@ const UiModal: React.FC<UiModalProps> = ({ title, isOpen, onClose, onSubmit, isT
     <div className="ui-modal-wrapper">
         <div className="ui-modal-wrapper-content">
             <UiCard>
-                <div className="flex justify-between">
-                    <h3>{title}</h3>
+                <div className="ui-modal-wrapper-content-title flex align-center justify-between">
+                    <h3 className="no-gutter">
+                        {title}
+                    </h3>
                     <UiButton onClick={onClose} fill="text" iconOnly>
                         <UiIcon
                             name="close"

@@ -15,8 +15,8 @@ const DashboardHomePage: React.FC = () => {
     return (
         <DashboardLayout>
             <UiContainer>
-                <div className="flex justify-between">
-                    <h1>
+                <div className="page-header flex align-center justify-between">
+                    <h1 className="no-gutter">
                         Products
                     </h1>
 
