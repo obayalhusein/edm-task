@@ -1,6 +1,7 @@
 import UiButton from '../../UiElements/UiButton'
 import { useNavigate } from 'react-router-dom'
 import './style.scss'
+import UiIcon from '../../UiElements/UiIcon';
 
 const DashboardHeader: React.FC = () => {
   const nav = useNavigate();
@@ -14,9 +15,15 @@ const DashboardHeader: React.FC = () => {
     <div className="dashboard-header bg-primary">
       <div className="dashboard-header-brand">EDM</div>
       <UiButton
-        label="Logout"
         onClick={logoutAction}
-      />
+        fill="text"
+        iconOnly
+      >
+        <UiIcon
+          name="logout"
+          color="white"
+        />
+      </UiButton>
     </div>
   );
 };

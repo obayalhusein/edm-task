@@ -6,15 +6,16 @@ interface UiButtonProps {
     type?: 'button' | 'submit' | 'reset';
     color?: 'primary' | 'warn' | 'error';
     fill?: 'text' | 'outline';
+    iconOnly?: boolean;
     fullWidth?: boolean;
     disabled?: boolean;
     children?: ReactNode;
     onClick: (e: FormEvent) => void;
 }
 
-const UiButton: React.FC<UiButtonProps> = ({ label, type, color, fill, fullWidth, disabled, children, onClick }) => {
+const UiButton: React.FC<UiButtonProps> = ({ label, type, color, fill, iconOnly, fullWidth, disabled, children, onClick }) => {
     return (
-        <button type={type} className={`ui-button ${color || ''} ${fill || ''} ${fullWidth ? 'full-width' : ''}`} onClick={onClick} disabled={disabled}>
+        <button type={type} className={`ui-button ${color || ''} ${fill || ''} ${iconOnly ? 'icon-only' : ''} ${fullWidth ? 'full-width' : ''}`} onClick={onClick} disabled={disabled}>
           {label ? label : children }
         </button>
     );

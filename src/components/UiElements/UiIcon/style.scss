@@ -1,0 +1,27 @@
+.ui-icon {
+    display: inline-flex;
+    width: 18px;
+    height: 18px;
+    align-items: center;
+    justify-content: center;
+    &.white {
+        path {
+            fill: white;
+        }
+    }
+    &.primary {
+        path {
+            fill: var(--primary-color);
+        }
+    }
+    &.warn {
+        path {
+            fill: var(--warn-color);
+        }
+    }
+    &.danger {
+        path {
+            fill: var(--danger-color);
+        }
+    }
+}
