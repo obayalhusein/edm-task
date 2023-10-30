@@ -37,7 +37,7 @@ export const addProduct = (productData: ProductAttributes) => async (dispatch: D
       payload: deleted.data?.data,
     });
   }
-  catch (error: string | unknown) {
+  catch (error) {
     dispatch(errorAction(error));
   }
 };
@@ -69,7 +69,7 @@ export const deleteProduct = (productId: number) => async (dispatch: Dispatch) =
       payload: deleted.data?.data,
     });
   }
-  catch (error: string | unknown) {
+  catch (error) {
     dispatch(errorAction(error));
   }
 };

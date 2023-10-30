@@ -9,6 +9,7 @@ export interface ProductData {
 }
 
 export interface ProductAttributes {
+  data?: ProductAttributes
   id: number
   title: string
   description: string
