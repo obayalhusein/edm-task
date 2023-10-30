@@ -59,7 +59,7 @@ export const editProduct = (editedProduct: ProductAttributes) => async (dispatch
   }
 };
 
-export const deleteProduct = (productId: string) => async (dispatch: Dispatch) => {
+export const deleteProduct = (productId: number) => async (dispatch: Dispatch) => {
   dispatch(loadingAction());
   try {
     const deleted: { data: ProductAttributes; } = await apiService.delete(`/products/${productId}`);
